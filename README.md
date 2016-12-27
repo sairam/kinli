@@ -12,6 +12,16 @@
 * `kinli.InitTmpl()` - to start your template rendering
 * `kinli.SessionStore` - this is a mandatory field to be initialized
 
+## Sending Emails
+
+```
+var smtpConfig = &kinli.EmailSMTPConfig{config.SMTPHost, config.SMTPPort, config.SMTPUser, config.SMTPPass}
+kinli.InitMailer(smtpConfig)
+
+e := &kinli.EmailCtx{} // fill up the fields from,to, subject, TextBody, HTMLBody, optional headers
+e.SendEmail()
+```
+
 ## Example
 See [`example1/`](https://github.com/sairam/kinli/tree/master/example1/) for a quick webpage
 
