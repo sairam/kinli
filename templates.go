@@ -70,6 +70,25 @@ func DisplayPage(w io.Writer, path string, page interface{}) {
 	tv.Execute(w, page)
 }
 
+// GetPage gets the raw page content
+func GetPage(path string, page interface{}) io.Reader {
+	pr, pw := io.Pipe()
+	go func() {
+		defer pw.Close()
+		DisplayPage(pw, path, page)
+	}()
+	return pr
+}
+
+// GetPageContent gets the page content as string
+func GetPageContent(path string, page interface{}) (string, error) {
+	t, err := ioutil.ReadAll(GetPage(path, page))
+	if err != nil {
+		return "", err
+	}
+	return string(t), nil
+}
+
 func load() {
 	// load templates
 	loadTmplFromDir(templates.prefix)

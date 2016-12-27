@@ -24,13 +24,13 @@ type EmailSMTPConfig struct {
 
 // EmailCtx which needs to be set to send the email
 type EmailCtx struct {
-	From     *mail.Address
-	To       []*mail.Address
-	Cc       []*mail.Address
-	Bcc      []*mail.Address
-	Subject  string
-	HTMLBody string
-	TextBody string
+	From      *mail.Address
+	To        []*mail.Address
+	Cc        []*mail.Address
+	Bcc       []*mail.Address
+	Subject   string
+	PlainBody string
+	HTMLBody  string
 
 	// optional headers that need to be sent
 	Headers map[string]string
@@ -111,7 +111,7 @@ func (ctx *EmailCtx) MakeEmail() *gomail.Message {
 	for header, value := range ctx.Headers {
 		m.SetHeader(header, value)
 	}
-	m.SetBody("text/plain", ctx.TextBody)
+	m.SetBody("text/plain", ctx.PlainBody)
 	if ctx.HTMLBody != "" {
 		m.AddAlternative("text/html", ctx.HTMLBody)
 	}
