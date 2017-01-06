@@ -122,8 +122,8 @@ func (hc *HttpContext) clearFlashes() {
 	}
 }
 
-// this actually flushes as well
-func (hc *HttpContext) getFlashes() []string {
+// GetFlashes gets the list of flashes and flushes as well
+func (hc *HttpContext) GetFlashes() []string {
 	session := hc.getSession()
 	if flashes := session.Flashes(); len(flashes) > 0 {
 		fs := make([]string, len(flashes))
@@ -136,7 +136,7 @@ func (hc *HttpContext) getFlashes() []string {
 	return nil
 }
 
-func (hc *HttpContext) addFlash(flash string) {
+func (hc *HttpContext) AddFlash(flash string) {
 
 	session := hc.getSession()
 	if session == nil {

@@ -29,7 +29,7 @@ func NewPage(hc *HttpContext, title string, user interface{}, ctx interface{}, d
 	return &Page{
 		Title:        title,
 		User:         user,
-		Flashes:      hc.getFlashes(),
+		Flashes:      hc.GetFlashes(),
 		Context:      ctx,
 		Data:         data,
 		ClientConfig: ClientConfig,

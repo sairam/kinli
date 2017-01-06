@@ -1,3 +1,4 @@
+[![GoDoc](https://godoc.org/github.com/sairam/kinli?status.svg)](https://godoc.org/github.com/sairam/kinli)
 
 ## Installation
 
