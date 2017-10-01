@@ -1,8 +1,15 @@
 [![GoDoc](https://godoc.org/github.com/sairam/kinli?status.svg)](https://godoc.org/github.com/sairam/kinli)
 
+## Go Versions
+Tested on Go versions > 1.6
+
 ## Installation
 
     go get github.com/sairam/kinli
+
+or
+
+    dep ensure -add github.com/sairam/kinli
 
 ## Using `kinli`
 

@@ -6,10 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"../../kinli"
-
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
+	"github.com/sairam/kinli"
 )
 
 func init() {
